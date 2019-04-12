@@ -204,16 +204,26 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-
+                            <th><b>ลำดับ</b></th>
+                            <th><b>ชื่อผู้ใช้งาน</b></th>
+                            <th><b>อีเมล</b></th>
+                            <th><b>สิทธิ์</b></th>
+                            <th><b>ล่าสุด</b></th>
+                            <th ></th>
                         </tr>
                         </thead>
                         <tbody id="sortable">
-
-
+                        @foreach($users as $index =>  $user)
+                            <td>{{$index+1}}</td>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->emil}}</td>
+                            <td></td>
+                            <td>{{$user->updated_at}}</td>
+                            <td ></td>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
             </div>
         </div>
     </div>
