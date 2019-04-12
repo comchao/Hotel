@@ -469,8 +469,9 @@
                             <div id="title_box_right" class="btn-sm dropdown btn-group">
                                 <a class="dropdown-item card" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>
-                                    {{ __('ออกจากระบบ') }}
+                                                     document.getElementById('logout-form').submit();">
+                                     <center>ออกจากระบบ  <i class="fas fa-sign-out-alt"></i>
+                                    </center>
                                 </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
