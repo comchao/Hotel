@@ -68,9 +68,12 @@
           </li>
         </ul>
 
+
+
+
         <!-- Button to Open the "Logout" Modal -->
-        <form class="form-inline my-2 my-lg-0">
-          <button type="button" class="btn btn-outline-danger">Log Out</button>
+        <form >
+          <button type="button" >Log Out</button>
         </form>
       </div>
     </nav>
