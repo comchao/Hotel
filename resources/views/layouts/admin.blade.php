@@ -467,29 +467,15 @@
                         <div class="col-auto">
                             <div class="arrow-up"></div>
                             <div id="title_box_right" class="btn-sm dropdown btn-group">
-                                <label class="dropdown" id="dropdownMenuButton" data-toggle="dropdown">
-
-                                    <div class="dd-button">
-                                        <img src="{{asset('img/user.png')}}">
-                                    </div>
-
-                                </label>
-
-                                <div class="dropdown-menu dropright btn-sm" aria-labelledby="dropdownMenuButton" style="background: rgb(232, 234, 244);">
-                                    <div class="text-center">
-                                        <b>บัญชีผู้ใช้</b>
-                                    </div>
-                                    <a class="dropdown-item card" harf="#" id="1"><i class="fas fa-user"></i> ข้อมูลผู้ใช้</a>
-                                    <a class="dropdown-item card" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                <a class="dropdown-item card" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>
-                                        {{ __('ออกจากระบบ') }}
-                                    </a>
-                                </div>
+                                    {{ __('ออกจากระบบ') }}
+                                </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
 
                             </div>
                         </div>
