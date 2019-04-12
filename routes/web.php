@@ -25,47 +25,48 @@ Route::group([
     'middleware' => 'auth',
 ], function () {
     Route::resource('staff', 'AdminController');
+    Route::resource('reservation', 'ReservationController');
 
-    Route::get('/account', function () {
-        return view('account');
-    });
-
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    });
-
-    Route::get('/events', function () {
-        return view('events');
-    });
-
-    Route::get('/forgotPwd', function () {
-        return view('forgotPwd');
-    });
-
-    Route::get('/guests', function () {
-        return view('guests');
-    });
-
-    Route::get('/report', function () {
-        return view('report');
-    });
-
-    Route::get('/reservation', function () {
-        return view('reservation');
-    });
-
-    Route::get('/services', function () {
-        return view('services');
-    });
-    Route::get('/setting', function () {
-        return view('setting');
-    });
-    Route::get('/staff2', function () {
-        return view('staff');
-    });
-    Route::get('/stock', function () {
-        return view('stock');
-    });
+//    Route::get('/account', function () {
+//        return view('account');
+//    });
+//
+//    Route::get('/dashboard', function () {
+//        return view('dashboard');
+//    });
+//
+//    Route::get('/events', function () {
+//        return view('events');
+//    });
+//
+//    Route::get('/forgotPwd', function () {
+//        return view('forgotPwd');
+//    });
+//
+//    Route::get('/guests', function () {
+//        return view('guests');
+//    });
+//
+//    Route::get('/report', function () {
+//        return view('report');
+//    });
+//
+//    Route::get('/reservation', function () {
+//        return view('reservation');
+//    });
+//
+//    Route::get('/services', function () {
+//        return view('services');
+//    });
+//    Route::get('/setting', function () {
+//        return view('setting');
+//    });
+//    Route::get('/staff2', function () {
+//        return view('staff');
+//    });
+//    Route::get('/stock', function () {
+//        return view('stock');
+//    });
 
     Route::get('/home', 'HomeController@index')->name('home');
 
