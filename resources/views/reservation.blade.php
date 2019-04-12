@@ -80,6 +80,7 @@
           <!--================ Add Booking =================-->
           <div class="col-sm-8"><div class="container">
             <div class="pb-2 mt-4 mb-2 border-bottom"><h4>New Booking</h4></div>
+                  <div class="pb-2 mt-4 mb-2 border-bottom"><h4>New Booking test </h4></div>
             <select class="form-control">
                 <option>-- Room Name --</option> <!-- ต้องดึงข้อมูลที่ผู้ใช้สร้าง ขึ้นมาแสดง -->
                 <option>101</option>
