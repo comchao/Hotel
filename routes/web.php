@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     if (auth()->check()) {
-        return redirect('welcome');
+        return redirect('home');
     } else {
         return redirect('login');
     }
@@ -24,7 +24,7 @@ Auth::routes();
 Route::group([
     'middleware' => 'auth',
 ], function () {
-    Route::resource('admin', 'AdminController');
+    Route::resource('staff', 'AdminController');
 
     Route::get('/account', function () {
         return view('account');
@@ -60,7 +60,7 @@ Route::group([
     Route::get('/setting', function () {
         return view('setting');
     });
-    Route::get('/staff', function () {
+    Route::get('/staff2', function () {
         return view('staff');
     });
     Route::get('/stock', function () {

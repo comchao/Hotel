@@ -15,5 +15,5 @@ return [
 //    ['url' => 'receipt', 'title' => 'ใบเสร็จ', 'icon' => 'fas fa-file'],
 //    ['url' => 'reservation', 'title' => 'การจองห้องพัก', 'icon' => 'fas fa-bed'],
 //    ['url' => 'customer', 'title' => 'จัดการผู้ใช้มือถือ', 'icon' => 'fas fa-mobile-alt'],
-    ['url' => 'admin', 'title' => 'ผู้ดูแลระบบ', 'icon' => 'fas fa-user-alt'],
+    ['url' => 'staff', 'title' => 'Staff', 'icon' => 'fas fa-user-alt'],
 ];

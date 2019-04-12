@@ -112,9 +112,11 @@
         .handler_title {
             color: #0D8890;
             font-size: 24px;
-            position: absolute;
+            /*position: absolute;*/
             top: 15px;
             vertical-align: middle;
+            margin-left: 55px;
+            margin-top: 10px;
         }
 
         body {
@@ -417,75 +419,48 @@
 
     </style>
     <link href="{{ asset('assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css"/>
-    {{--<link href="/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />--}}
     <link rel="shortcut icon" href="/assets/demo/default/media/img/logo/favicon.ico"/>
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-
     @stack('stylesheets')
 </head>
-
-<!-- end::Head -->
-
-
-<!-- begin::Body -->
-
 <body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
-
-<!-- begin:: Page -->
 <div class="m-grid m-grid--hor m-grid--root m-page">
-
-    <!-- BEGIN: Header -->
     <header id="m_header" class="m-grid__item    m-header " m-minimize-offset="200" m-minimize-mobile-offset="200">
-
         <div class="m-container m-container--fluid m-container--full-height">
             <div class="m-stack m-stack--ver m-stack--desktop">
-
-                <!-- BEGIN: Brand -->
                 <div class="m-stack__item m-brand  m-brand--skin-dark ">
                     <div class="m-stack m-stack--ver m-stack--general">
-
-
                         <div class="m-stack__item m-stack__item--middle m-brand__tools" style="float:  left;padding-top: 15px;">
-                            <!-- BEGIN: Responsive Aside Left Menu Toggler -->
                             <a href="javascript:;" id="m_aside_left_offcanvas_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block">
                                 <span></span>
                             </a>
-                            <!-- END -->
                         </div>
                         <a href="{{url('home')}}">
                             <div class="handler_title">
-                                <img src="{{asset('img/user.png')}}">{{env("APP_NAME",'CSA')}}
+                               {{env("APP_NAME")?:'HotelCloud'}}
                             </div>
                         </a>
                     </div>
                 </div>
-
-                <!-- END: Brand -->
                 <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
-
-                    <!-- BEGIN: Horizontal Menu -->
                     <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-dark "
                             id="m_aside_header_menu_mobile_close_btn">
                         <i class="fa fa-cross"></i>
                     </button>
-                    {{--<div style="position:absolute; right:0; height:100%; font-size:20px; line-height: 70px; padding-right:20px;">--}}
-                    {{--{{auth()->user()->name}} {{auth()->user()->surname}}</div>--}}
                     <div class="row" style="height: 100%;" id="topbar">
                         <div class="col">
                             <div id="title_box">
-                                @if(isset($backUrl))
-                                    <a id="back_button" href="{{$backUrl}}" class="btn btn-link"><img
-                                                src="{{url('img/arrow-left.png')}}"/></a>
-                                @endif
-                                @if(isset($pageTitle))
-                                    <h3 id="page_title">{{$pageTitle}}</h3>
-                                @endif
+                                {{--@if(isset($backUrl))--}}
+                                    {{--<a id="back_button" href="{{$backUrl}}" class="btn btn-link"><img--}}
+                                                {{--src="{{url('img/arrow-left.png')}}"/></a>--}}
+                                {{--@endif--}}
+                                {{--@if(isset($pageTitle))--}}
+                                    {{--<h3 id="page_title">{{$pageTitle}}</h3>--}}
+                                {{--@endif--}}
                             </div>
                         </div>
                         <div class="col-auto" style="   top: 26px;">
                             <div id="bell">
-                                {{--<div  class="name" style="font-size:16px; right: 10px;color: #3D438D;">{{auth()->user()->username}}</div>--}}
-                                {{--<i class="far fa-bell"></i>--}}
                             </div>
                         </div>
 
@@ -505,18 +480,6 @@
                                         <b>บัญชีผู้ใช้</b>
                                     </div>
                                     <a class="dropdown-item card" harf="#" id="1"><i class="fas fa-user"></i> ข้อมูลผู้ใช้</a>
-                                    {{--<a class="dropdown-item card" href="#" id="2"><i class="fas fa-globe"></i> ภาษา: ไทย</a>--}}
-
-                                    {{--<a>--}}
-                                        {{--<a class="dropdown-item card dropdown-toggle" id="dropdownSubMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">--}}
-                                            {{--<i class="fas fa-globe"></i> ภาษา: ไทย <span class="caret"></span>--}}
-                                        {{--</a>--}}
-                                        {{--<ul class="dropdown-menu" aria-labelledby="dropdownSubMenu">--}}
-                                            {{--<li class="dropdown-item"><a href="#">ภาษา: ไทย</a></li>--}}
-                                            {{--<li class="dropdown-item"><a href="#">ภาษา: อังกฤษ</a></li>--}}
-                                        {{--</ul>--}}
-                                    {{--</a>--}}
-
                                     <a class="dropdown-item card" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>
