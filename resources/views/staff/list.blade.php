@@ -183,7 +183,7 @@
             <div class="col-4"></div>
             <div class="col-3"></div>
             <div class="col-2">
-                <a  class="btn btn--custom"
+                <a  class="btn btn--custom" href="{{url('staff/create')}}"
 {{--                    data-toggle="modal" data-target="#newStaff"--}}
                    style="background-color: #0a6aa1;color:#fff;border-radius: 3px;float: right;"
                    role="button">
