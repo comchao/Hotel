@@ -26,6 +26,11 @@ Route::group([
 ], function () {
     Route::resource('staff', 'AdminController');
     Route::resource('reservation', 'ReservationController');
+    Route::resource('guest', 'ReservationController');
+    Route::resource('stock', 'ReservationController');
+    Route::resource('stock', 'ReservationController');
+    Route::resource('booking', 'ReservationController');
+    Route::resource('setting', 'ReservationController');
 
 //    Route::get('/account', function () {
 //        return view('account');
