@@ -15,13 +15,14 @@ class AddColumnToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('staff_name')->nullable();
+            $table->string('staff_username')->nullable();
             $table->date('staff_birth')->nullable();
             $table->integer('staff_age')->nullable();
             $table->integer('staff_height')->nullable();
             $table->integer('staff_weight')->nullable();
-            $table->boolean('staff_role_reception')->nullable();
-            $table->boolean('staff_role_housekeeping')->nullable();
-            $table->boolean('staff_role_food_and_beverage')->nullable();
+            $table->boolean('staff_role_reception')->nullable()->default(false);
+            $table->boolean('staff_role_housekeeping')->nullable()->default(false);
+            $table->boolean('staff_role_food_and_beverage')->nullable()->default(false);
             $table->string('staff_pos')->nullable();
             $table->text('staff_address')->nullable();
             $table->text('staff_address2')->nullable();
@@ -31,7 +32,7 @@ class AddColumnToUsersTable extends Migration
             $table->string('staff_status')->nullable();
             $table->string('staff_previous_job')->nullable();
             $table->string('staff_pic')->nullable();
-            $table->string('staff_citizen')->nullable();
+            $table->string('staff_file')->nullable();
             $table->string('staff_note')->nullable();
         });
     }
@@ -63,7 +64,7 @@ class AddColumnToUsersTable extends Migration
                 'staff_previous_job',
                 'staff_pic',
                 'staff_citizen',
-                'staff_citizen',
+                'staff_file',
                 'staff_note',
             ]);
         });

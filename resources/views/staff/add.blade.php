@@ -215,19 +215,26 @@
             </div>
         </div>
 
+        <form class="m-form m-form--fit " enctype="multipart/form-data"
+              action="{{ $data->id ? route('staff.update', ['type_id' => $data->id]) : route('staff.store') }}"
+              method="POST">
+            @csrf
+            @if($data && $data->id)
+                @method('PUT')
+            @endif
         <div class="m-portlet__body" id="eventTable">
             <div class="container">
 
                 <div  id="newStaff">
                     <!-- Modal body -->
                             <div class="modal-body">
-                                <form action=""> <!-- action here -->
 
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group row">
                                                 <label for="staff_name" class="col-sm-4 col-form-label">Full Name</label>
                                                 <div class="col-sm-8"><input type="text" class="form-control"
+                                                                             value="{{$data->name}}"
                                                                             name="staff_name" id="staff_name"></div>
                                             </div>
                                         </div>
@@ -236,6 +243,7 @@
                                                 <label for="staff_id" class="col-sm-4 col-form-label">Staff ID</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control"
+                                                           value="{{$data->id}}"
                                                            name="staff_name" id="staff_name">
                                                 </div>
                                             </div>
@@ -245,16 +253,26 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group row">
-                                                <label for="staff_uname" class="col-sm-4 col-form-label">Username</label>
-                                                <div class="col-sm-8"><input type="text" class="form-control"
-                                                                             name="staff_uname" id="staff_uname"></div>
+                                                <label for="staff_username" class="col-sm-4 col-form-label">Username</label>
+                                                <div class="col-sm-8"><input type="text" class="form-control" value="{{$data->staff_username}}"
+                                                                             name="staff_username" id="staff_username"></div>
                                             </div>
                                         </div>
                                         <div class="col">
+
                                             <div class="form-group row">
-                                                <label for="staff_pwd" class="col-sm-4 col-form-label">Password</label>
-                                                <div class="col-sm-8"><input type="password" class="form-control"
-                                                                             name="staff_pwd" id="staff_pwd"></div>
+                                                <label for="password" class="col-sm-4 col-form-label">Password</label>
+
+                                                <div class="col-sm-8">
+                                                    @if(!$data->id)
+                                                        <input type="password" class="form-control"
+                                                               name="password" id="password">
+
+                                                    @else
+                                                        <a href="#"
+                                                        >เปลี่ยนรหัสผ่าน</a>
+                                                    @endif
+                                                   </div>
                                             </div>
                                         </div>
                                     </div>
@@ -263,7 +281,11 @@
                                         <div class="col">
                                             <div class="form-group row">
                                                 <label for="staff_id" class="col-sm-4 col-form-label">Date of Birth</label>
-                                                <div class="col-sm-8"><input  class="form-control" name="staff_datepicker" id="staff_birth" width="235"/></div>
+                                                <div class="col-sm-8"><input
+                                                            class="form-control" name="staff_birth" id="staff_birth"
+                                                            value="{{$data->staff_birth}}"
+                                                            width="235"/>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col">
@@ -272,7 +294,9 @@
                                                 <div class="col-sm-8">
                                                     <label class="sr-only" for="inlineFormInputGroupUsername"></label>
                                                     <div class="input-group">
-                                                        <input type="number" class="form-control"  min="10" name="staff_age" id="staff_age">
+                                                        <input type="number" class="form-control"  min="10" name="staff_age"
+                                                               value="{{$data->staff_age}}"
+                                                               id="staff_age">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">years</div>
                                                         </div>
@@ -289,7 +313,9 @@
                                                 <div class="col-sm-8 my-1">
                                                     <label class="sr-only" for="inlineFormInputGroupUsername"></label>
                                                     <div class="input-group">
-                                                        <input type="number" class="form-control" min="50" name="staff_height" id="staff_height">
+                                                        <input type="number" class="form-control" min="50" name="staff_height"
+                                                               value="{{$data->staff_height}}"
+                                                               id="staff_height">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">cm.</div>
                                                         </div>
@@ -303,7 +329,9 @@
                                                 <div class="col-sm-8 my-1">
                                                     <label class="sr-only" for="inlineFormInputGroupUsername"></label>
                                                     <div class="input-group">
-                                                        <input type="number" class="form-control" min="50" name="staff_weight" id="staff_weight">
+                                                        <input type="number" class="form-control" min="50" name="staff_weight"
+                                                               value="{{$data->staff_weight}}"
+                                                               id="staff_weight">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">kg.</div>
                                                         </div>
@@ -319,10 +347,10 @@
                                                 <label for="staff_role" class="col-sm-4 col-form-label">Department</label>
                                                 <div class="col-sm-8">
                                                     <select class="form-control" name="staff_role" id="staff_role">
-                                                        <option>-- Select --</option>
-                                                        <option>Reception</option>
-                                                        <option>Housekeeping</option>
-                                                        <option>Food and Beverage</option>
+                                                        <option value="">-- Select --</option>
+                                                        <option value="Reception">Reception</option>
+                                                        <option value="Housekeeping">Housekeeping</option>
+                                                        <option value="Food and Beverage">Food and Beverage</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -331,6 +359,7 @@
                                             <div class="form-group row">
                                                 <label for="staff_pos" class="col-sm-4 col-form-label">Position</label>
                                                 <div class="col-sm-8"><input type="text" class="form-control"
+                                                                             value="{{$data->staff_pos}}"
                                                                              name="staff_pos" id="staff_pos"></div>
                                             </div>
                                         </div>
@@ -341,7 +370,8 @@
                                             <div class="form-group row">
                                                 <label for="inputAddress" class="col-sm-4 col-form-label">Address</label>
                                                 <div class="col-sm-8"><input type="text" class="form-control"
-                                                                             name="staff_inputAddress" id="staff_inputAddress"
+                                                                             name="staff_address" id="staff_address"
+                                                                             value="{{$data->staff_address}}"
                                                                              placeholder="1234 Main St"></div>
                                             </div>
                                         </div>
@@ -349,7 +379,8 @@
                                             <div class="form-group row">
                                                 <label for="inputAddress2" class="col-sm-4 col-form-label">Address 2</label>
                                                 <div class="col-sm-8"><input type="text" class="form-control"
-                                                                             name="staff_inputAddress2" id="staff_inputAddress2"
+                                                                             value="{{$data->staff_address2}}"
+                                                                             name="staff_address2" id="staff_address2"
                                                                              placeholder="Apartment, studio, or floor">
                                                 </div>
                                             </div>
@@ -361,7 +392,7 @@
                                             <div class="form-group row">
                                                 <label for="inputAddress3" class="col-sm-4 col-form-label">Address 3</label>
                                                 <div class="col-sm-8"><input type="text" class="form-control"
-                                                                             name="staff_inputAddress3" id="staff_inputAddress3"
+                                                                             name="staff_address3" id="staff_address3"
                                                                              placeholder="City">
                                                 </div>
                                             </div>
@@ -371,7 +402,7 @@
                                                 <label for="staff_province" class="col-sm-4 col-form-label">Province</label>
                                                 <div class="col-sm-8">
                                                     <select name="staff_province" id="staff_province" class="form-control">
-                                                        <option selected>-- Select --</option>
+                                                        <option value="">-- Select --</option>
                                                         <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                                                         <option value="กระบี่">กระบี่ </option>
                                                         <option value="กาญจนบุรี">กาญจนบุรี </option>
@@ -461,7 +492,7 @@
                                             <div class="form-group row">
                                                 <label for="staff_email" class="col-sm-4 col-form-label">Email</label>
                                                 <div class="col-sm-8"><input type="email" class="form-control"
-                                                                             name="staff_email" id="staff_email" placeholder="abc@def.com">
+                                                                             name="email" id="staff_email" placeholder="abc@def.com">
                                                 </div>
                                             </div>
                                         </div>
@@ -481,7 +512,7 @@
                                                 <label for="staff_status" class="col-sm-4 col-form-label">Status</label>
                                                 <div class="col-sm-8">
                                                     <select class="form-control" name="staff_status" id="staff_status">
-                                                        <option>-- Select --</option>
+                                                        <option value=""></option>
                                                         <option>Working</option>
                                                         <option>Fired</option>
                                                         <option>Resigned</option>
@@ -495,6 +526,7 @@
                                                 <label for="staff_preJob" class="col-sm-4 col-form-label">Previous
                                                     Job</label>
                                                 <div class="col-sm-8"><input type="text" class="form-control"
+                                                                             value="{{$data->staff_previous_job}}"
                                                                              name="staff_previous_job" id="staff_previous_job"></div>
                                             </div>
                                         </div>
@@ -513,7 +545,7 @@
                                             <div class="form-group row">
                                                 <label for="staff_status" class="col-sm-4 col-form-label">File</label>
                                                 <div class="col-sm-8">
-                                                    <input type="file" class="form-control" name="staff_citizen" id="staff_citizen">
+                                                    <input type="file" class="form-control" name="staff_file" id="staff_file">
                                                 </div>
                                             </div>
                                         </div>
@@ -521,21 +553,22 @@
 
                                     <div class="form-group">
                                         <label for="staff_note">Note: </label>
-                                        <textarea class="form-control" name="staff_note" id="staff_note" rows="3"></textarea>
+                                        <textarea class="form-control" name="staff_note" id="staff_note" rows="3"> {{$data->staff_note}}</textarea>
                                     </div>
 
-                                </form> <!-- end action here -->
+
                             </div>
 
                             <!-- Modal footer -->
                             <div class="modal-footer">
-                                <button align="center" type="button" class="btn btn-success">Save</button>
+                                <button align="center" type="submit" class="btn btn-success">Save</button>
                             </div>
                         </div>
 
 
             </div>
         </div>
+        </form> <!-- end action here -->
         @endsection
         @push('scripts')
             <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
