@@ -19,6 +19,7 @@
     <link rel="dns-prefetch" href="{{ asset('/fonts.gstatic.com') }}">
     <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet" type="text/css">
     <link href="{{ asset('lib/fontawesome-pro-5.6.1/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 
     <!-- Styles -->
@@ -85,6 +86,7 @@
 </html>
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 {{--<script src="{{ asset('js/pusher.min.js') }}"></script>--}}
 {{--<script type="application/javascript">--}}
 {{--$.ajaxSetup({--}}
